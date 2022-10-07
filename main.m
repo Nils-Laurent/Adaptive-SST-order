@@ -1,5 +1,21 @@
 function [energy_vec, sr, s_vec, p_vec] =...
     main(s_in,sn,snr_in,Lx,N_f,sigma_w,d_vec,NR,RA)
+%% main function
+% ============== input
+% s_in : vector of all modes
+% sn : noisy signal
+% snr_in : set of all considered SNRs
+% Lx : length of the signal
+% N_f : nb of frequency bins
+% sigma_w : parameter for the gaussian window
+% d_vec : range parameter for SST reconstruction
+% NR : number of ridge
+% RA : ridge to consider
+% ============== output
+% energy_vec : energy concentration depending on the order
+% s_vec : reconstruction of RA at all orders
+% sr : reconstruction for the mode RA
+% p_vec : chosen order for the reconstruction
 
 LD = length(d_vec);
 s_ref = s_in;
