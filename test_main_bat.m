@@ -38,7 +38,7 @@ xi1 = max(IFs) + 100;
 F2 = F_vec.*(F_vec > xi0).*(F_vec < xi1);
 
 small_TFRsc(Tx, F_vec, abs(STFT));
-return;
+% return;
 gen_fig_TFR(Tx, F2, STFT, s_name);
 % return;
 
@@ -62,7 +62,7 @@ for RA=1:NR
     [EV_i, smax_i, sv_i, pv_i] =...
         main(s_all, s_all, inf, Lx, Nfft, sigma_w, [0],NR,RA);
 
-    gen_fig_ridge_energy(Tx(Xw), Amp(Xw), squeeze(EV_i(:, 1, Xw)), [s_name, '_r1']);
+%     gen_fig_ridge_energy(Tx(Xw), Amp(Xw), squeeze(EV_i(:, 1, Xw)), [s_name, '_r1']);
     
     s_modes(:, RA) = smax_i;
     sv_modes(:, :, RA) = squeeze(sv_i(:, :, :));
@@ -82,8 +82,12 @@ SR_max = sum(s_modes, 2);
 [STFT_SR, ~] = sstn(SR_max, 10^(-6), sigma_w);
 gen_fig_TFR(Tx, F2, STFT_SR, [s_name, '_SR']);
 
-snr(s_ref, s_ref(:) - SR_ord(1, :).')
-snr(s_ref, s_ref(:) - SR_ord(2, :).')
-snr(s_ref, s_ref(:) - SR_ord(3, :).')
-snr(s_ref, s_ref(:) - SR_ord(4, :).')
-snr(s_ref, s_ref(:) - SR_max(:))
+fprintf("SNR SST1 = %f\n", snr(s_ref, s_ref(:) - SR_ord(1, :).'));
+fprintf("SNR SST2 = %f\n", snr(s_ref, s_ref(:) - SR_ord(1, :).'));
+fprintf("SNR SST3 = %f\n", snr(s_ref, s_ref(:) - SR_ord(1, :).'));
+fprintf("SNR SST4 = %f\n", snr(s_ref, s_ref(:) - SR_ord(1, :).'));
+fprintf("SNR adaptive = %f\n", snr(s_ref, s_ref(:) - SR_max(:)));
+% snr(s_ref, s_ref(:) - SR_ord(2, :).')
+% snr(s_ref, s_ref(:) - SR_ord(3, :).')
+% snr(s_ref, s_ref(:) - SR_ord(4, :).')
+% snr(s_ref, s_ref(:) - SR_max(:))
