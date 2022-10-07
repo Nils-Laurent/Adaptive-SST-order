@@ -1,0 +1,8 @@
+*.eps
+*.fig
+*.mat
+*.txt
+
+old_tests/
+test_interf/
+
