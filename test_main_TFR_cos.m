@@ -53,6 +53,6 @@ TFRsc(abs(TFR_adaptive));
 
 figure;
 hold on;
-plot(real(s_all));
+plot(real(sum(TFR_adaptive, 1)));
 plot(real(s_ref));
 hold off;
