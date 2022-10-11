@@ -50,4 +50,9 @@ d_vec = 0;
     main_TFR(s_all, s_all, inf, Lx, Nfft, sigma_w, d_vec,NR,RA);
 
 TFRsc(abs(TFR_adaptive));
-TFRsc(log(abs(TFR_adaptive)));
+
+figure;
+hold on;
+plot(real(s_all));
+plot(real(s_ref));
+hold off;

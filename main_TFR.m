@@ -91,7 +91,7 @@ for id=1:LD
         [~, p0] = max(energy_vec(:, id_min, n));
         p_vec(id, n, p0) = 1;
         sr(id, n) = s_vec(p0, id, n);
-        TFR(c_vec(p0, n), n) = t_vec(p0, c_vec(p0, n), n, i0_vec(p0, n));
+        TFR(c_vec(p0, n), n) = sigma_w*t_vec(p0, c_vec(p0, n), n, i0_vec(p0, n));
 %         TFR(c_vec(p0, n), n) = 1;
     end
 end
